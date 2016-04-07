@@ -26,3 +26,4 @@
 	b) Cookie manipulation
 	c) SQL injection
 	d) Simple passwords/ default password
+	e) Ref: https://www.owasp.org/index.php/OWASP_Periodic_Table_of_Vulnerabilities_-_Cookie_Theft/Session_Hijacking

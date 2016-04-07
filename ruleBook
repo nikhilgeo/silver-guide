@@ -21,3 +21,8 @@
 			</FORM>
 			
 4) According to SOP only XHR request is blocked, coz it can be used to make GET,POST,PUT,DELETE so use iframe, for click jacking.
+5) Authentication By-Pass
+	a) Look into source, directory listing for password clues
+	b) Cookie manipulation
+	c) SQL injection
+	d) Simple passwords/ default password

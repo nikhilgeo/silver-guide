@@ -1,0 +1,7 @@
+Enable DCCP mode in nc
+--DCCP is a transport layer protocol like TCP or UDP
+--To switch to DCCP protocol in nc use the flag -Z, check man nc
+
+
+Reference:
+https://github.com/burlingpwn/writeups/tree/master/EKOPARTY-CTF-2016/Misc/Congested%20service

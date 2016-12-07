@@ -4,3 +4,6 @@ Questions Ideaz
 > Transfer of encrypted password from login page to server
 > BY-Pass CORS or SOP
 > GET used to do state chnages
+> The remote host responded to an ICMP timestamp request. The ICMP timestamp response contains the remote host's date and time.
+This information could theoretically be used against some systems to exploit weak time-based random number generators in other
+services.

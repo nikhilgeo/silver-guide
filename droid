@@ -1,2 +1,0 @@
-Start activity
-am start -n "com.package.name/activity_name" -a intent_action -c intent_category 
